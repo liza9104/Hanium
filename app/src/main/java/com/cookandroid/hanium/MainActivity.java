@@ -1,4 +1,4 @@
-package com.AndroidStudioProjects.hanium;
+package com.cookandroid.hanium;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import com.cookandroid.hanium.R;
 
 public class MainActivity extends AppCompatActivity {
     RadioGroup rg;
