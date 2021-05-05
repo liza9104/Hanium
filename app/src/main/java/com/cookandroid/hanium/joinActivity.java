@@ -11,13 +11,13 @@ import android.widget.RadioGroup;
 
 import com.cookandroid.hanium.R;
 
-public class MainActivity extends AppCompatActivity {
+public class joinActivity extends AppCompatActivity {
     RadioGroup rg;
     LinearLayout info;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.join);
 
         info = findViewById(R.id.info);
         rg = findViewById(R.id.rg);
