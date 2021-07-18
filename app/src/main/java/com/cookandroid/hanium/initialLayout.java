@@ -17,7 +17,7 @@ public class initialLayout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.initial);
 
-        final String[] school = {"인천대학교","대학교1","대학교2"};
+        final String[] school = {"△△대학교","대학교1","대학교2"};
         Spinner spinner = findViewById(R.id.school_spinner);
 
         ArrayAdapter<String> adapter;
