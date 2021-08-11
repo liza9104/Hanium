@@ -16,5 +16,11 @@ public interface ServiceApi {
     @POST("user/idchk")
     Call<IdChkResponse> userIdchk(@Body IdChkData data);
 
+    @POST("user/test")
+    Call<testResponse> test(@Body testData data);
+
+    @POST("user/RR")
+    Call<RR_response> userRRInfo(@Body RRData data);
+
 
 }

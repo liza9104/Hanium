@@ -47,10 +47,24 @@
                 android:id="@+id/school_btn"
                 android:layout_width="70dp"
                 android:layout_height="30dp"
-                android:background="#B39DDB"
+                android:background="@drawable/radius"
                 android:text="완료"
                 android:textColor="#ffffff" />
+            <Button
+                android:id="@+id/test_btn"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/radius"
+                android:text="테스트"
+                android:textColor="#ffffff" />
+
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

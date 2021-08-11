@@ -16,8 +16,10 @@
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter></activity>
+        <activity android:name=".mainActivity"/>
         <activity android:name=".loginActivity"/>
         <activity android:name=".joinActivity"/>
+        <activity android:name=".RR_info"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

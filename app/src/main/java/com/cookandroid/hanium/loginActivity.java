@@ -19,12 +19,15 @@ public class loginActivity extends AppCompatActivity {
     private EditText loginNumber,loginPw;
     private Button loginBtn, joinBtn;
     private ServiceApi service;
+    public int resultCode;
+    String id,pw;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
         loginNumber = findViewById(R.id.login_number);
         loginPw = findViewById(R.id.login_password);
         loginBtn = findViewById(R.id.login_button);
@@ -37,6 +40,7 @@ public class loginActivity extends AppCompatActivity {
                 attemptLogin();
             }
         });
+
         joinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,8 +54,8 @@ public class loginActivity extends AppCompatActivity {
         loginNumber.setError(null);
         loginPw.setError(null);
 
-        String id = loginNumber.getText().toString();
-        String pw = loginPw.getText().toString();
+        id = loginNumber.getText().toString();
+        pw = loginPw.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -69,8 +73,18 @@ public class loginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse result = response.body();
+                resultCode = result.getCode();
+                //id = result.getUserId();
 
-                Toast.makeText(loginActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+                if(resultCode==200){
+                    Intent intent = new Intent(getApplicationContext(), mainActivity.class);
+                    intent.putExtra("id", id);
+                    startActivity(intent);
+                    finish();
+                }
+                else {
+                    Toast.makeText(loginActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
