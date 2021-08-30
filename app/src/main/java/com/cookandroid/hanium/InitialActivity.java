@@ -1,8 +1,8 @@
 package com.cookandroid.hanium;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,17 +19,24 @@ import retrofit2.Response;
 
 import static com.cookandroid.hanium.RetrofitClient.getClient;
 
-public class initialLayout extends AppCompatActivity {
+public class InitialActivity extends AppCompatActivity {
     Button schoolbtn;
     Button testBtn;
     private ServiceApi service;
     TextView text;
-
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.initial);
+        setContentView(R.layout.activity_initial);
+        sharedPreferences = getSharedPreferences("preferences", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
+        if (sharedPreferences.getBoolean("auto-login-activate",false)){
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        }
         service = getClient().create(ServiceApi.class);
 
         final String[] school = {"△△대학교", "대학교1", "대학교2"};
@@ -43,7 +50,7 @@ public class initialLayout extends AppCompatActivity {
         schoolbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), loginActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -85,7 +92,7 @@ public class initialLayout extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<testResponse> call, Throwable t) {
-                Toast.makeText(initialLayout.this, "테스트 에러 발생", Toast.LENGTH_SHORT).show();
+                Toast.makeText(InitialActivity.this, "테스트 에러 발생", Toast.LENGTH_SHORT).show();
             }
 
 

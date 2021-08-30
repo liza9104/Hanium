@@ -16,7 +16,7 @@ import retrofit2.Response;
 
 
 
-public class joinActivity extends AppCompatActivity {
+public class JoinActivity extends AppCompatActivity {
     private EditText joinID,joinPw,joinPwChk,joinEmail,joinNickname;
     private Button idchk, joinBtn;
     private ServiceApi service;
@@ -24,7 +24,7 @@ public class joinActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.join);
+        setContentView(R.layout.activity_join);
 
 
         joinID = findViewById(R.id.id);
@@ -86,13 +86,13 @@ public class joinActivity extends AppCompatActivity {
                     focusView=joinID;
                     focusView.requestFocus();
                 }else {
-                    Toast.makeText(joinActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(JoinActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<IdChkResponse> call, Throwable t) {
-                Toast.makeText(joinActivity.this, "중복확인 에러 발생", Toast.LENGTH_SHORT).show();
+                Toast.makeText(JoinActivity.this, "중복확인 에러 발생", Toast.LENGTH_SHORT).show();
                 Log.e("중복확인 에러 발생", t.getMessage());
 
             }
@@ -171,7 +171,7 @@ public class joinActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<JoinResponse> call, Response<JoinResponse> response) {
                 JoinResponse result = response.body();
-                Toast.makeText(joinActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(JoinActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
 
                 if (result.getCode() == 200) {
                     finish();
@@ -180,7 +180,7 @@ public class joinActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<JoinResponse> call, Throwable t) {
-                Toast.makeText(joinActivity.this, "회원가입 에러 발생", Toast.LENGTH_SHORT).show();
+                Toast.makeText(JoinActivity.this, "회원가입 에러 발생", Toast.LENGTH_SHORT).show();
                 Log.e("회원가입 에러 발생", t.getMessage());
 
             }

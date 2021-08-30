@@ -1,9 +1,10 @@
 package com.cookandroid.hanium;
 
+import java.util.HashMap;
+
 import retrofit2.Call;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface ServiceApi {
@@ -20,7 +21,10 @@ public interface ServiceApi {
     Call<testResponse> test(@Body testData data);
 
     @POST("user/RR")
-    Call<RR_response> userRRInfo(@Body RRData data);
+    Call<HashMap<String, String>> userRRInfo(@Body RecommendData data);
 
+
+    @GET("user/recommendList")
+    Call<RecommendResponse> getRecommendList();
 
 }

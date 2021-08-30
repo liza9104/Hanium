@@ -1,10 +1,12 @@
 package com.cookandroid.hanium;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -13,43 +15,51 @@ import androidx.appcompat.app.AppCompatActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
-public class loginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private EditText loginNumber,loginPw;
     private Button loginBtn, joinBtn;
     private ServiceApi service;
     public int resultCode;
+    CheckBox autoLoginCheck;
     String id,pw;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.activity_login);
+        sharedPreferences = getSharedPreferences("preferences",MODE_PRIVATE);
 
         loginNumber = findViewById(R.id.login_number);
         loginPw = findViewById(R.id.login_password);
         loginBtn = findViewById(R.id.login_button);
         joinBtn = findViewById(R.id.join_button);
         service = RetrofitClient.getClient().create(ServiceApi.class);
+        autoLoginCheck = findViewById(R.id.autoLoginCheck);
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attemptLogin();
-            }
-        });
+        loginBtn.setOnClickListener(onClickListener);
 
-        joinBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), joinActivity.class);
-                startActivity(intent);
-            }
-        });
+        joinBtn.setOnClickListener(onClickListener);
     }
 
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch(v.getId()){
+                case R.id.login_button:
+                    attemptLogin();
+                    break;
+                case R.id.join_button:
+                    Intent intent = new Intent(getApplicationContext(), JoinActivity.class);
+                    startActivity(intent);
+                    break;
+
+            }
+        }
+    };
     private void attemptLogin() {
         loginNumber.setError(null);
         loginPw.setError(null);
@@ -74,27 +84,34 @@ public class loginActivity extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse result = response.body();
                 resultCode = result.getCode();
-                //id = result.getUserId();
+                id = result.getUserId();
+                editor = sharedPreferences.edit();
+
 
                 if(resultCode==200){
-                    Intent intent = new Intent(getApplicationContext(), mainActivity.class);
-                    intent.putExtra("id", id);
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    //intent.putExtra("id", loginNumber.getText().toString());
+                    editor.putString("id",id);
+                    editor.commit();
                     startActivity(intent);
                     finish();
+                    if(autoLoginCheck.isChecked()){
+                        editor.putBoolean("auto-login-activate",true);
+                        editor.commit();
+                    }
                 }
                 else {
-                    Toast.makeText(loginActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(loginActivity.this, "로그인 에러 발생", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "로그인 에러 발생", Toast.LENGTH_SHORT).show();
                 Log.e("로그인 에러 발생", t.getMessage());
-
             }
         });
-    }
+      }
 
 
 }

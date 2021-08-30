@@ -10,16 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".initialLayout">
+        <activity android:name=".InitialActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
-
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter></activity>
-        <activity android:name=".mainActivity"/>
-        <activity android:name=".loginActivity"/>
-        <activity android:name=".joinActivity"/>
-        <activity android:name=".RR_info"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".JoinActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
