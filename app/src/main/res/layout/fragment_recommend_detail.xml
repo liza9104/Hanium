@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="60dp"
+        android:background="#ffffff"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="룸메이트 추천 서비스"
+            android:textSize="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+        <Button
+            android:id="@+id/search_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/search"
+            android:layout_marginRight="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/my_btn"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <Button
+            android:id="@+id/my_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:text="MY"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/titleLayout"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/detail_page_bottom_line"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/detailTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="제목"
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="@id/titleLayout"
+                    app:layout_constraintTop_toTopOf="@id/titleLayout" />
+
+                <TextView
+                    android:id="@+id/detailNickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="닉네임"
+                    android:textSize="12dp"
+                    app:layout_constraintLeft_toLeftOf="@id/detailTitle"
+                    app:layout_constraintTop_toBottomOf="@id/detailTitle" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/ic_baseline_check_circle_outline_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/detailWish" />
+
+                <TextView
+                    android:id="@+id/detailWish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="13dp"
+                    android:text="찜 갯수"
+                    android:textSize="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#E6E7E8"
+            app:layout_constraintTop_toBottomOf="@id/titleLayout">
+            <TextView
+                android:id="@+id/detailDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="본문"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintTop_toBottomOf="@id/detailDesc"
+                app:layout_constraintLeft_toLeftOf="@id/detailDesc"
+                app:layout_constraintBottom_toBottomOf="parent">
+            <TextView
+                android:id="@+id/detailDomText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기숙사"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+            <TextView
+                android:id="@+id/inputDom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기숙사"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintLeft_toRightOf="@id/detailDomText"
+                app:layout_constraintTop_toTopOf="@id/detailDomText"/>
+            <TextView
+                android:id="@+id/detailSmokeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="흡연 여부"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@id/detailDomText"
+                app:layout_constraintLeft_toLeftOf="@id/detailDomText"/>
+            <TextView
+                android:id="@+id/inputSmoke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="흡연 여부"
+                app:layout_constraintLeft_toLeftOf="@id/inputDom"
+                app:layout_constraintLeft_toRightOf="@id/detailSmokeText"
+                app:layout_constraintTop_toTopOf="@id/detailSmokeText"/>
+            <TextView
+                android:id="@+id/detailSleepHabitText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="잠버릇"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@id/detailSmokeText"
+                app:layout_constraintLeft_toLeftOf="@id/detailSmokeText"/>
+            <TextView
+                android:id="@+id/inputSleepHabit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="잠버릇"
+                app:layout_constraintLeft_toLeftOf="@id/inputSmoke"
+                app:layout_constraintLeft_toRightOf="@id/detailSleepHabitText"
+                app:layout_constraintTop_toTopOf="@id/detailSleepHabitText"/>
+            <TextView
+                android:id="@+id/detailFoodText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="음식 섭취"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@id/detailSleepHabitText"
+                app:layout_constraintLeft_toLeftOf="@id/detailSleepHabitText"/>
+            <TextView
+                android:id="@+id/inputFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="음식 섭취"
+                app:layout_constraintLeft_toLeftOf="@id/inputSleepHabit"
+                app:layout_constraintLeft_toRightOf="@id/detailFoodText"
+                app:layout_constraintTop_toTopOf="@id/detailFoodText"/>
+            <TextView
+                android:id="@+id/detailSleepTimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="취침 시간"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@id/detailFoodText"
+                app:layout_constraintLeft_toLeftOf="@id/detailFoodText"/>
+            <TextView
+                android:id="@+id/inputSleepTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="취침 시간"
+                app:layout_constraintLeft_toLeftOf="@id/inputFood"
+                app:layout_constraintLeft_toRightOf="@id/detailSleepTimeText"
+                app:layout_constraintTop_toTopOf="@id/detailSleepTimeText"/>
+            <TextView
+                android:id="@+id/detailNumberOfCleanText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="청소 횟수"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@id/detailSleepTimeText"
+                app:layout_constraintLeft_toLeftOf="@id/detailSleepTimeText"/>
+            <TextView
+                android:id="@+id/inputNumberOfClean"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="청소 횟수"
+                app:layout_constraintLeft_toLeftOf="@id/inputSleepTime"
+                app:layout_constraintLeft_toRightOf="@id/detailNumberOfCleanText"
+                app:layout_constraintTop_toTopOf="@id/detailNumberOfCleanText"/>
+            <TextView
+                android:id="@+id/detailNumberOfShowerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="샤워 횟수"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@id/detailNumberOfCleanText"
+                app:layout_constraintLeft_toLeftOf="@id/detailNumberOfCleanText"/>
+            <TextView
+                android:id="@+id/inputNumberOfShower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="샤워 횟수"
+                app:layout_constraintLeft_toLeftOf="@id/inputNumberOfClean"
+                app:layout_constraintLeft_toRightOf="@id/detailNumberOfShowerText"
+                app:layout_constraintTop_toTopOf="@id/detailNumberOfShowerText"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/chatBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:background="@drawable/radius"
+                android:text="채팅 보내기"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="20dp" />
+        </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
