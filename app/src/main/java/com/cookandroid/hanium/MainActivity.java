@@ -16,11 +16,12 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager fragmentManager = getSupportFragmentManager();
     homeFragment homeFragment = new homeFragment();
     bulletinFragment bulletinFragment = new bulletinFragment();
-    recommendInitialFragment rrInitialFragment = new recommendInitialFragment();
+    recommendInitialFragment recommendInitialFragment = new recommendInitialFragment();
     myPageFragment myPageFragment = new myPageFragment();
-    recommendFragment rrFragment = new recommendFragment();
+    recommendFragment recommendFragment = new recommendFragment();
+    recommendSearchFragment recommendSearchFragment = new recommendSearchFragment();
     SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
+
     String id;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle bundle = new Bundle();
         bundle.putString("id",id);
-        rrFragment.setArguments(bundle);
+        recommendFragment.setArguments(bundle);
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.frameLayout, bulletinFragment).commitAllowingStateLoss();
                         break;
                     case R.id.rr:
-                        transaction.replace(R.id.frameLayout, rrInitialFragment).commitAllowingStateLoss();
+                        transaction.replace(R.id.frameLayout, recommendInitialFragment).commitAllowingStateLoss();
                         break;
                     case R.id.myPage:
                         transaction.replace(R.id.frameLayout, myPageFragment).commitAllowingStateLoss();
@@ -67,11 +68,18 @@ public class MainActivity extends AppCompatActivity {
     public void onClickMyBtn(){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left);
-        fragmentTransaction.replace(R.id.frameLayout,rrFragment).commitAllowingStateLoss();
+        fragmentTransaction.replace(R.id.frameLayout,recommendFragment).commitAllowingStateLoss();
+    }
+    public void onClickSearchBtn() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left);
+        fragmentTransaction.replace(R.id.frameLayout,recommendSearchFragment).commitAllowingStateLoss();
     }
     public void onClickBackBtn(){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);
-        fragmentTransaction.replace(R.id.frameLayout,rrInitialFragment).commitAllowingStateLoss();
+        fragmentTransaction.replace(R.id.frameLayout,recommendInitialFragment).commitAllowingStateLoss();
     }
+
+
 }

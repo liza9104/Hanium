@@ -8,7 +8,7 @@
     <Button
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/radius"
         android:text="로그인"
@@ -20,7 +20,7 @@
     <EditText
         android:id="@+id/login_number"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:ems="10"
         android:hint="사번"
         android:inputType="number"
@@ -32,7 +32,7 @@
     <EditText
         android:id="@+id/login_password"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="비밀번호"
@@ -45,7 +45,6 @@
         android:id="@+id/Logo"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginBottom="10dp"
         android:src="@drawable/image_only"
         app:layout_constraintBottom_toTopOf="@+id/login_number"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,21 +53,35 @@
     <Button
         android:id="@+id/join_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:background="@android:color/transparent"
         android:text="회원이 아니신가요? 회원가입"
         android:textStyle="bold"
         android:textColor="#71B0E3"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+    <Button
+        android:id="@+id/find_password_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:background="@android:color/transparent"
+        android:text="임시비밀번호 발급"
+        android:textStyle="bold"
+        android:textColor="#71B0E3"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/join_button" />
 
     <CheckBox
         android:id="@+id/autoLoginCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:text="자동 로그인"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

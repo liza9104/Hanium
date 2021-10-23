@@ -1,5 +1,6 @@
 package com.cookandroid.hanium;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -14,12 +16,11 @@ import java.util.ArrayList;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     ArrayList<RecommendData> arrayList;
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView imageView;
         TextView tv1, tv2;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv1 = itemView.findViewById(R.id.title);
-            tv2 = itemView.findViewById(R.id.desc);
+            tv1 = itemView.findViewById(R.id.itemTitle);
+            tv2 = itemView.findViewById(R.id.itemNickname);
         }
     }
     public RecyclerViewAdapter(ArrayList<RecommendData> arrayList){
@@ -35,8 +36,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder holder, int position) {
-        holder.tv1.setText(arrayList.get(position).getId());
-        holder.tv2.setText(arrayList.get(position).getSex());
+        holder.tv1.setText(arrayList.get(position).getTitle());
+        holder.tv2.setText(arrayList.get(position).getDesc());
+        int i = position;
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(holder.itemView.getContext(), RecommendDetail.class);
+                intent.putExtra("id",arrayList.get(i).getId());
+                ContextCompat.startActivity(holder.itemView.getContext(), intent, null);
+            }
+        });
     }
 
     @Override

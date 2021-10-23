@@ -59,8 +59,6 @@ public class recommendFragment extends Fragment {
         Bundle bundle = getArguments();
         id = bundle.getString("id");
 
-
-
         inputSex = v.findViewById(R.id.sex);
         inputDom = v.findViewById(R.id.dom);
         inputSmoke = v.findViewById(R.id.smoke);

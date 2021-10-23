@@ -7,12 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.JsonArray;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -44,15 +46,21 @@ public class recommendInitialFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_recommend_initial, container, false);
         recyclerView = v.findViewById(R.id.recyclerview);
         Button myBtn = v.findViewById(R.id.my_btn);
+        Button searchBtn = v.findViewById(R.id.search_btn);
         final ArrayList<RecommendData> arrayList = new ArrayList<>();
         service = RetrofitClient.getClient().create(ServiceApi.class);
+
         service.getRecommendList().enqueue(new Callback<RecommendResponse>() {
             @Override
             public void onResponse(Call<RecommendResponse> call, Response<RecommendResponse> response) {
                 if(response.isSuccessful()){
+                    RecommendResponse result = response.body();
+
+                    Log.d("test",result.getData().get(1).getTitle());
                     for(int i = 0 ; i<response.body().getData().size(); i++) {
                         arrayList.add(response.body().getData().get(i));
                     }
+
                     recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                     RecyclerViewAdapter adapter = new RecyclerViewAdapter(arrayList);
                     recyclerView.setAdapter(adapter);
@@ -65,7 +73,7 @@ public class recommendInitialFragment extends Fragment {
             }
         });
 
-        //arrayList.add(new RecommendData("201701654","여성","2기숙사","비흡연자","코골이","일부 허용","9시~12시","매일","매일","제목","내용"));
+
 
 
 
@@ -74,6 +82,14 @@ public class recommendInitialFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mainActivity.onClickMyBtn();
+            }
+        });
+
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    mainActivity.onClickSearchBtn();
             }
         });
 

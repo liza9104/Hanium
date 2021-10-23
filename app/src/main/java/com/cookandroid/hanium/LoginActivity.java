@@ -18,7 +18,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText loginNumber,loginPw;
-    private Button loginBtn, joinBtn;
+    private Button loginBtn, joinBtn,findPasswordBtn;
     private ServiceApi service;
     public int resultCode;
     CheckBox autoLoginCheck;
@@ -39,10 +39,13 @@ public class LoginActivity extends AppCompatActivity {
         joinBtn = findViewById(R.id.join_button);
         service = RetrofitClient.getClient().create(ServiceApi.class);
         autoLoginCheck = findViewById(R.id.autoLoginCheck);
+        findPasswordBtn = findViewById(R.id.find_password_btn);
 
         loginBtn.setOnClickListener(onClickListener);
 
         joinBtn.setOnClickListener(onClickListener);
+
+        findPasswordBtn.setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -56,7 +59,10 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), JoinActivity.class);
                     startActivity(intent);
                     break;
-
+                case R.id.find_password_btn:
+                    Intent pwIntent = new Intent(getApplicationContext(), FindPasswordPopUp.class);
+                    startActivity(pwIntent);
+                    break;
             }
         }
     };
@@ -69,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
 
         boolean cancel = false;
         View focusView = null;
+
 
 
         if (cancel) {

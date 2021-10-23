@@ -1,5 +1,9 @@
 package com.cookandroid.hanium;
 
+import android.graphics.Paint;
+
+import com.google.gson.JsonArray;
+
 import java.util.HashMap;
 
 import retrofit2.Call;
@@ -23,6 +27,8 @@ public interface ServiceApi {
     @POST("user/RR")
     Call<HashMap<String, String>> userRRInfo(@Body RecommendData data);
 
+    @POST("user/issueTempPassword")
+    Call<TempPasswordResponse> issueTempPassword(@Body TempPasswordData data);
 
     @GET("user/recommendList")
     Call<RecommendResponse> getRecommendList();
