@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     bulletinFragment bulletinFragment = new bulletinFragment();
     recommendInitialFragment recommendInitialFragment = new recommendInitialFragment();
     myPageFragment myPageFragment = new myPageFragment();
-    recommendFragment recommendFragment = new recommendFragment();
+    recommendInputFragment recommendFragment = new recommendInputFragment();
     recommendSearchFragment recommendSearchFragment = new recommendSearchFragment();
     SharedPreferences sharedPreferences;
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString("id",id);
         recommendFragment.setArguments(bundle);
-
+        recommendInitialFragment.setArguments(bundle);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

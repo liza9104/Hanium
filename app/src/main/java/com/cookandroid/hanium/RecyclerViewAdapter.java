@@ -21,6 +21,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
             tv1 = itemView.findViewById(R.id.itemTitle);
             tv2 = itemView.findViewById(R.id.itemNickname);
+
         }
     }
     public RecyclerViewAdapter(ArrayList<RecommendData> arrayList){
@@ -37,17 +38,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder holder, int position) {
         holder.tv1.setText(arrayList.get(position).getTitle());
-        holder.tv2.setText(arrayList.get(position).getDesc());
+        holder.tv2.setText(arrayList.get(position).getNickname());
         int i = position;
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(holder.itemView.getContext(), RecommendDetail.class);
-                intent.putExtra("id",arrayList.get(i).getId());
+                RecommendData data = arrayList.get(i);
+                intent.putExtra("data",data);
                 ContextCompat.startActivity(holder.itemView.getContext(), intent, null);
+
             }
         });
     }
+
 
     @Override
     public int getItemCount() {

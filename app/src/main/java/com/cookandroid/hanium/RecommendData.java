@@ -1,10 +1,16 @@
 package com.cookandroid.hanium;
 
+
 import com.google.gson.annotations.SerializedName;
 
-class RecommendData {
+import java.io.Serializable;
+
+class RecommendData implements Serializable {
     @SerializedName("id")
     private String id;
+
+    @SerializedName("nickname")
+    private String nickname;
 
     @SerializedName("sex")
     private String sex;
@@ -54,12 +60,36 @@ class RecommendData {
         this.desc = desc;
     }
 
+    public RecommendData(String id, String nickname ,String sex, String dom, String smoke, String sleepHabit,
+                         String food, String sleepTime, String numberOfCleaning, String numberOfShower, String title, String desc) {
+        this.id = id;
+        this.nickname = nickname;
+        this.sex = sex;
+        this.dom = dom;
+        this.smoke = smoke;
+        this.sleepHabit = sleepHabit;
+        this.food = food;
+        this.sleepTime = sleepTime;
+        this.numberOfCleaning = numberOfCleaning;
+        this.numberOfShower = numberOfShower;
+        this.title = title;
+        this.desc = desc;
+    }
+
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getSex() {
@@ -149,4 +179,7 @@ class RecommendData {
     public void setCode(int code) {
         this.code = code;
     }
+
+
+
 }

@@ -9,7 +9,9 @@ import java.util.HashMap;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface ServiceApi {
     @POST("/user/login")
@@ -31,6 +33,6 @@ public interface ServiceApi {
     Call<TempPasswordResponse> issueTempPassword(@Body TempPasswordData data);
 
     @GET("user/recommendList")
-    Call<RecommendResponse> getRecommendList();
+    Call<RecommendResponse> getRecommendList(@Query("id") String id);
 
 }

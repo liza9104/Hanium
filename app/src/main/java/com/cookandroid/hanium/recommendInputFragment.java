@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class recommendFragment extends Fragment {
+public class recommendInputFragment extends Fragment {
     private RadioGroup inputSex, inputDom, inputSmoke, inputSleepHabit, inputFood, inputSleepTime, inputNumberOfCleaning, inputNumberOfShower;
     private CheckBox snoring, teethGrinding, sleepTalking;
     private Button inputBtn, back_btn;
@@ -54,7 +55,7 @@ public class recommendFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_recommend, container, false);
+        View v = inflater.inflate(R.layout.fragment_recommend_input, container, false);
 
         Bundle bundle = getArguments();
         id = bundle.getString("id");
@@ -161,6 +162,7 @@ public class recommendFragment extends Fragment {
                 cancel=true;
                 Toast.makeText(getContext(), "성별을 입력해주세요.", Toast.LENGTH_SHORT).show();
         }
+
 
         //기숙사
         switch (inputDom.getCheckedRadioButtonId()) {

@@ -20,7 +20,7 @@ import retrofit2.Response;
 import static com.cookandroid.hanium.RetrofitClient.getClient;
 
 public class InitialActivity extends AppCompatActivity {
-    Button schoolbtn;
+    Button schoolBtn;
     Button testBtn;
     private ServiceApi service;
     TextView text;
@@ -46,8 +46,8 @@ public class InitialActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, school);
         spinner.setAdapter(adapter);
 
-        schoolbtn = findViewById(R.id.school_btn);
-        schoolbtn.setOnClickListener(new View.OnClickListener() {
+        schoolBtn = findViewById(R.id.school_btn);
+        schoolBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);

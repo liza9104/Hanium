@@ -9,14 +9,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class RecommendDetail extends AppCompatActivity {
     TextView title, desc, nickname;
-    TextView dom, smoke, sleepHabit, food, sleepTime, NumberOfClean, numberOfShower;
+    TextView dom, smoke, sleepHabit, food, sleepTime, numberOfClean, numberOfShower;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recommend_detail);
-        Intent intent = getIntent();
+
+
         title = findViewById(R.id.detailTitle);
         desc = findViewById(R.id.detailDesc);
         nickname = findViewById(R.id.detailNickname);
@@ -25,10 +26,28 @@ public class RecommendDetail extends AppCompatActivity {
         sleepHabit = findViewById(R.id.detailSleepHabit);
         food = findViewById(R.id.detailFood);
         sleepTime = findViewById(R.id.detailSleepTime);
-        NumberOfClean = findViewById(R.id.detailNumberOfClean);
+        numberOfClean = findViewById(R.id.detailNumberOfClean);
         numberOfShower = findViewById(R.id.detailNumberOfShower);
 
-        title.setText(intent.getStringExtra("title"));
+        Intent intent = getIntent();
+        RecommendData data = (RecommendData) intent.getSerializableExtra("data");
+        title.setText(data.getTitle());
+        desc.setText(data.getDesc());
+
+
+        nickname.setText(data.getNickname());
+
+        dom.setText(data.getDom());
+        smoke.setText(data.getSmoke());
+        sleepHabit.setText(data.getSleepHabit());
+        food.setText(data.getFood());
+        sleepTime.setText(data.getSleepTime());
+        numberOfShower.setText(data.getNumberOfShower());
+        numberOfClean.setText(data.getNumberOfCleaning());
+
+
+
+
 
     }
 

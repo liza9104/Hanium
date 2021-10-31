@@ -1,6 +1,7 @@
 package com.cookandroid.hanium;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,6 +28,7 @@ public class recommendInitialFragment extends Fragment {
     MainActivity mainActivity;
     ServiceApi service;
     RecyclerView recyclerView;
+    String id;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -50,20 +52,26 @@ public class recommendInitialFragment extends Fragment {
         final ArrayList<RecommendData> arrayList = new ArrayList<>();
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
-        service.getRecommendList().enqueue(new Callback<RecommendResponse>() {
+        Bundle bundle = getArguments();
+        id = bundle.getString("id");
+
+
+
+        service.getRecommendList(id).enqueue(new Callback<RecommendResponse>() {
             @Override
             public void onResponse(Call<RecommendResponse> call, Response<RecommendResponse> response) {
                 if(response.isSuccessful()){
                     RecommendResponse result = response.body();
 
-                    Log.d("test",result.getData().get(1).getTitle());
-                    for(int i = 0 ; i<response.body().getData().size(); i++) {
-                        arrayList.add(response.body().getData().get(i));
+
+                    for(int i = 0 ; i<result.getData().size(); i++) {
+                            arrayList.add(result.getData().get(i));
                     }
 
                     recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                     RecyclerViewAdapter adapter = new RecyclerViewAdapter(arrayList);
                     recyclerView.setAdapter(adapter);
+
                 }
             }
 
@@ -72,9 +80,6 @@ public class recommendInitialFragment extends Fragment {
                     Log.d("test","실패");
             }
         });
-
-
-
 
 
 

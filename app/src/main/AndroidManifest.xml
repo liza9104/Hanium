@@ -18,7 +18,9 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".JoinActivity"/>
+        <activity android:name=".RecommendDetail"/>
         <activity android:name=".FindPasswordPopUp" android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"/>
+        <activity android:name=".FilteringPopUp" android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

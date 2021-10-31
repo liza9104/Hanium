@@ -1,5 +1,6 @@
 package com.cookandroid.hanium;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -49,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
+        @SuppressLint("NonConstantResourceId")
         @Override
         public void onClick(View v) {
             switch(v.getId()){
@@ -97,7 +99,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(resultCode==200){
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    //intent.putExtra("id", loginNumber.getText().toString());
                     editor.putString("id",id);
                     editor.commit();
                     startActivity(intent);
