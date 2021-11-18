@@ -3,7 +3,117 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/free_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="100dp"
+        android:src="@drawable/communityicon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/free_btn"
+        app:layout_constraintTop_toTopOf="@id/free_btn" />
+
+    <Button
+        android:id="@+id/free_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00ff0000"
+        android:layout_marginTop="140dp"
+        android:text="자유게시판"
+        android:textColor="@android:color/black"
+        app:layout_constraintLeft_toRightOf="@id/free_image"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <ImageView
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:src="@drawable/bottom_line"
+        app:layout_constraintTop_toBottomOf="@id/free_btn" />
+
+    <ImageView
+        android:id="@+id/complain_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="100dp"
+        android:src="@drawable/communityicon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/complain_btn"
+        app:layout_constraintTop_toTopOf="@id/complain_btn" />
+    <Button
+        android:id="@+id/complain_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00ff0000"
+        android:text="민원게시판"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/free_btn"
+        app:layout_constraintLeft_toLeftOf="@id/free_btn" />
+
+    <ImageView
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:src="@drawable/bottom_line"
+        app:layout_constraintTop_toBottomOf="@id/complain_btn"/>
+
+    <Button
+        android:id="@+id/market_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00ff0000"
+        android:text="장터게시판"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/complain_btn"
+        app:layout_constraintLeft_toLeftOf="@id/complain_btn"/>
+
+    <ImageView
+        android:id="@+id/market_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="100dp"
+        android:src="@drawable/communityicon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/market_btn"
+        app:layout_constraintTop_toTopOf="@id/market_btn" />
+
+    <ImageView
+        android:id="@+id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:src="@drawable/bottom_line"
+        app:layout_constraintTop_toBottomOf="@id/market_btn"  />
+
+    <ImageView
+        android:id="@+id/fix_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="100dp"
+        android:src="@drawable/communityicon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/fix_btn"
+        app:layout_constraintTop_toTopOf="@id/fix_btn"/>
+
+    <Button
+        android:id="@+id/fix_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00ff0000"
+        android:text="고장수리게시판"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/market_btn"
+        app:layout_constraintLeft_toLeftOf="@id/market_btn"/>
 
 
 

@@ -1,25 +1,37 @@
 package com.cookandroid.hanium;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
     FragmentManager fragmentManager = getSupportFragmentManager();
     homeFragment homeFragment = new homeFragment();
     bulletinFragment bulletinFragment = new bulletinFragment();
     recommendInitialFragment recommendInitialFragment = new recommendInitialFragment();
     myPageFragment myPageFragment = new myPageFragment();
+
     recommendInputFragment recommendFragment = new recommendInputFragment();
     recommendSearchFragment recommendSearchFragment = new recommendSearchFragment();
+    freeBulletinFragment freeBulletinFragment = new freeBulletinFragment();
+    freeBulletinRegisterFragment freeBulletinRegisterFragment = new freeBulletinRegisterFragment();
+    menuDetailFragment menuDetailFragment = new menuDetailFragment();
+
     SharedPreferences sharedPreferences;
 
     String id;
@@ -38,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("id",id);
         recommendFragment.setArguments(bundle);
         recommendInitialFragment.setArguments(bundle);
+        recommendSearchFragment.setArguments(bundle);
+
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -72,14 +87,38 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onClickSearchBtn() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left);
+        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);
         fragmentTransaction.replace(R.id.frameLayout,recommendSearchFragment).commitAllowingStateLoss();
+
     }
     public void onClickBackBtn(){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);
         fragmentTransaction.replace(R.id.frameLayout,recommendInitialFragment).commitAllowingStateLoss();
+        Intent intent = getIntent();
+        String sql = intent.getStringExtra("sql");
+        Bundle bundle = new Bundle();
+        bundle.putString("sql",sql);
+        recommendInitialFragment.setArguments(bundle);
+        Log.d("sql",sql);
+    }
+    public void onClickFreeBulletinBtn() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);
+        fragmentTransaction.replace(R.id.frameLayout,freeBulletinFragment).commitAllowingStateLoss();
+
     }
 
+    public void onClickFreeBulletinRegister() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);
+        fragmentTransaction.replace(R.id.frameLayout, freeBulletinRegisterFragment).commitAllowingStateLoss();
 
+    }
+    public void onClickMenuDetail() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);
+        fragmentTransaction.replace(R.id.frameLayout, menuDetailFragment).commitAllowingStateLoss();
+
+    }
 }

@@ -20,34 +20,249 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
-        <TextView
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/search_edit_text"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
-            android:text="룸메이트 검색"
-            android:textSize="20dp"
             app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:hint="검색어를 입력하세요."
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toLeftOf="@id/search_btn"
+            app:layout_constraintLeft_toRightOf="@id/search_back_btn"/>
 
         <Button
-            android:id="@+id/filtering_btn"
+            android:id="@+id/search_btn"
             android:layout_width="40dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:text="필터링"
+            android:text="검색"
             android:background="@android:color/transparent"
             android:layout_marginRight="10dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/searchRecyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout"
-        app:layout_constraintLeft_toLeftOf="parent"/>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0,1,2,3,4"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/search_edit_text">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/domTV"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="기숙사" />
+
+            <CheckBox
+                android:id="@+id/dom1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="1기숙사"
+                android:textColor="@android:color/black" />
+
+                <CheckBox
+                    android:id="@+id/dom2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="2기숙사"
+                    android:layout_span="1"/>
+
+                <CheckBox
+                    android:id="@+id/dom3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="3기숙사" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/smokeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="흡연 여부" />
+
+                <CheckBox
+                    android:id="@+id/smoker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="흡연자" />
+
+                <CheckBox
+                    android:id="@+id/nonsmoker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="비흡연자" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/sleepHabitTV"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="잠버릇" />
+
+
+                <CheckBox
+                    android:id="@+id/yesSleepHabit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="괜찮음" />
+
+                <CheckBox
+                    android:id="@+id/noSleepHabit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="절대 안됨" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/foodTV"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="음식 섭취" />
+
+
+                <CheckBox
+                    android:id="@+id/foodAllow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="가능" />
+
+                <CheckBox
+                    android:id="@+id/foodPartiallyAllow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="일부 가능" />
+
+                <CheckBox
+                    android:id="@+id/noFood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="불가능" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/sleepTimeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="평균 수면시간" />
+
+
+                <CheckBox
+                    android:id="@+id/slpBefore9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="9시 이전" />
+
+                <CheckBox
+                    android:id="@+id/slp9to12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="9~12시" />
+
+                <CheckBox
+                    android:id="@+id/slpAfter12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="12시 이후" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/NumberOfCleaningTV"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="청소 횟수"
+                android:gravity="center"/>
+
+                <CheckBox
+                    android:id="@+id/clean0to2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="주 0~2회" />
+
+                <CheckBox
+                    android:id="@+id/clean3to6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="주 3~6회" />
+
+                <CheckBox
+                    android:id="@+id/cleanEveryday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="매일" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/NumberOfShowerTV"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="샤워 횟수"/>
+                <CheckBox
+                    android:id="@+id/shower0to2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="주 0~2회" />
+
+                <CheckBox
+                    android:id="@+id/shower3to6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="주 3~6회" />
+
+                <CheckBox
+                    android:id="@+id/showerEveryday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="매일" />
+        </TableRow>
+    </TableLayout>
 </LinearLayout>
 

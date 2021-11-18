@@ -4,6 +4,7 @@ import android.graphics.Paint;
 
 import com.google.gson.JsonArray;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import retrofit2.Call;
@@ -34,5 +35,8 @@ public interface ServiceApi {
 
     @GET("user/recommendList")
     Call<RecommendResponse> getRecommendList(@Query("id") String id);
+
+    @GET("user/recommendFilteringList")
+    Call<RecommendResponse> getRecommendFilteringResultList(@Query("id") String id, @Query("filteringArray") ArrayList<String> filteringArray);
 
 }
