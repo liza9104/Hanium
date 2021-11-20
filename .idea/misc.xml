@@ -4,14 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/drawable/bottom_line.xml" value="0.20104166666666667" />
+        <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/drawable/icon_color.xml" value="0.196875" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/drawable/radius.xml" value="0.1453125" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/activity_initial.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/activity_recommend_detail.xml" value="0.4" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/filtering_popup.xml" value="0.4" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/find_password_popup.xml" value="0.15443840579710144" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/fragment_bulletin.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/fragment_bulletin_ex.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/fragment_complain_bulletin.xml" value="0.18489583333333334" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/fragment_fix_bulletin.xml" value="0.18489583333333334" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/fragment_free_bulletin.xml" value="0.18489583333333334" />
@@ -21,11 +23,12 @@
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/fragment_menu_detail.xml" value="0.25364583333333335" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/fragment_recommend.xml" value="0.15625" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/fragment_recommend_detail.xml" value="0.264" />
-        <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/fragment_recommend_initial.xml" value="0.4" />
+        <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/fragment_recommend_initial.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/fragment_recommend_input.xml" value="0.25364583333333335" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/fragment_recommend_search.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/recyclerview_item.xml" value="0.2164855072463768" />
         <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/layout/test.xml" value="0.536" />
+        <entry key="..\:/AndroidStudioProjects/Hanium/app/src/main/res/menu/menu_bottom.xml" value="0.18072916666666666" />
       </map>
     </option>
   </component>

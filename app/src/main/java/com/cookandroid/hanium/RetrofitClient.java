@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-    private final static String BASE_URL = "http://ec2-54-180-139-142.ap-northeast-2.compute.amazonaws.com:3000";
+    private final static String BASE_URL = "http://ec2-13-124-252-104.ap-northeast-2.compute.amazonaws.com:3000";
     private static Retrofit retrofit = null;
 
     private RetrofitClient() {
