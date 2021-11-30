@@ -19,6 +19,8 @@
             android:layout_height="wrap_content"
             android:text="룸메이트 추천 서비스"
             android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,15 +32,19 @@
             android:layout_gravity="center"
             android:background="@drawable/search"
             android:layout_marginRight="10dp"
+            android:backgroundTint="@android:color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toLeftOf="@id/my_btn"
             app:layout_constraintBottom_toBottomOf="parent"/>
+
         <Button
             android:id="@+id/my_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:text="MY"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:background="@android:color/transparent"
             android:layout_marginRight="10dp"
             app:layout_constraintTop_toTopOf="parent"
@@ -78,7 +84,7 @@
                     android:layout_marginTop="15dp"
                     android:text="제목"
                     android:textColor="@android:color/black"
-                    android:textSize="17dp"
+                    android:textSize="18dp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="@id/titleLayout"
                     app:layout_constraintTop_toTopOf="@id/titleLayout" />
@@ -89,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="닉네임"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     app:layout_constraintLeft_toLeftOf="@id/detailTitle"
                     app:layout_constraintTop_toBottomOf="@id/detailTitle" />
 
@@ -114,7 +120,7 @@
                 android:lineSpacingMultiplier="1.5"
                 android:text="본문"
                 android:textColor="@android:color/black"
-                android:textSize="15dp"
+                android:textSize="16dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -134,6 +140,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="기숙사"
+                    android:textSize="16dp"
                     android:textColor="@android:color/black"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -145,6 +152,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:text="기숙사"
+                    android:textSize="16dp"
                     app:layout_constraintLeft_toRightOf="@id/detailDomText"
                     app:layout_constraintTop_toTopOf="@id/detailDomText" />
 
@@ -154,6 +162,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="흡연 여부"
+                    android:textSize="16dp"
                     android:textColor="@android:color/black"
                     app:layout_constraintLeft_toLeftOf="@id/detailDomText"
                     app:layout_constraintTop_toBottomOf="@id/detailDomText" />
@@ -163,6 +172,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="흡연 여부"
+                    android:textSize="16dp"
                     app:layout_constraintLeft_toLeftOf="@id/detailDom"
                     app:layout_constraintLeft_toRightOf="@id/detailSmokeText"
                     app:layout_constraintTop_toTopOf="@id/detailSmokeText" />
@@ -173,6 +183,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="잠버릇"
+                    android:textSize="16dp"
                     android:textColor="@android:color/black"
                     app:layout_constraintLeft_toLeftOf="@id/detailSmokeText"
                     app:layout_constraintTop_toBottomOf="@id/detailSmokeText" />
@@ -182,6 +193,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="잠버릇"
+                    android:textSize="16dp"
                     app:layout_constraintLeft_toLeftOf="@id/detailSmoke"
                     app:layout_constraintLeft_toRightOf="@id/detailSleepHabitText"
                     app:layout_constraintTop_toTopOf="@id/detailSleepHabitText" />
@@ -192,6 +204,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="음식 섭취"
+                    android:textSize="16dp"
                     android:textColor="@android:color/black"
                     app:layout_constraintLeft_toLeftOf="@id/detailSleepHabitText"
                     app:layout_constraintTop_toBottomOf="@id/detailSleepHabitText" />
@@ -201,6 +214,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="음식 섭취"
+                    android:textSize="16dp"
                     app:layout_constraintLeft_toLeftOf="@id/detailSleepHabit"
                     app:layout_constraintLeft_toRightOf="@id/detailFoodText"
                     app:layout_constraintTop_toTopOf="@id/detailFoodText" />
@@ -211,6 +225,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="취침 시간"
+                    android:textSize="16dp"
                     android:textColor="@android:color/black"
                     app:layout_constraintLeft_toLeftOf="@id/detailFoodText"
                     app:layout_constraintTop_toBottomOf="@id/detailFoodText" />
@@ -220,6 +235,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="취침 시간"
+                    android:textSize="16dp"
                     app:layout_constraintLeft_toLeftOf="@id/detailFood"
                     app:layout_constraintLeft_toRightOf="@id/detailSleepTimeText"
                     app:layout_constraintTop_toTopOf="@id/detailSleepTimeText" />
@@ -230,6 +246,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="청소 횟수"
+                    android:textSize="16dp"
                     android:textColor="@android:color/black"
                     app:layout_constraintLeft_toLeftOf="@id/detailSleepTimeText"
                     app:layout_constraintTop_toBottomOf="@id/detailSleepTimeText" />
@@ -239,6 +256,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="청소 횟수"
+                    android:textSize="16dp"
                     app:layout_constraintLeft_toLeftOf="@id/detailSleepTime"
                     app:layout_constraintLeft_toRightOf="@id/detailNumberOfCleanText"
                     app:layout_constraintTop_toTopOf="@id/detailNumberOfCleanText" />
@@ -249,6 +267,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="샤워 횟수"
+                    android:textSize="16dp"
                     android:textColor="@android:color/black"
                     app:layout_constraintLeft_toLeftOf="@id/detailNumberOfCleanText"
                     app:layout_constraintTop_toBottomOf="@id/detailNumberOfCleanText" />
@@ -258,6 +277,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="샤워 횟수"
+                    android:textSize="16dp"
                     app:layout_constraintLeft_toLeftOf="@id/detailNumberOfClean"
                     app:layout_constraintLeft_toRightOf="@id/detailNumberOfShowerText"
                     app:layout_constraintTop_toTopOf="@id/detailNumberOfShowerText" />
@@ -266,11 +286,12 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
             <Button
                 android:id="@+id/chatBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:background="@drawable/radius"
                 android:text="채팅 보내기"
+                android:textSize="16dp"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="20dp" />
         </LinearLayout>

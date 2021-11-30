@@ -39,4 +39,9 @@ public interface ServiceApi {
     @GET("user/recommendFilteringList")
     Call<RecommendResponse> getRecommendFilteringResultList(@Query("id") String id, @Query("filteringArray") ArrayList<String> filteringArray);
 
+    @GET("user/myInfo")
+    Call<HashMap<String, String>> getMyInformation(@Query("id") String id);
+
+    @GET("user/modifyPassword")
+    Call<HashMap<String, String>> modifyPassword(@Query("id") String id, @Query("currentPassword") String currentPassword,@Query("newPassword") String newPassword);
 }

@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         sharedPreferences = getSharedPreferences("preferences",MODE_PRIVATE);
 
+
         loginNumber = findViewById(R.id.login_number);
         loginPw = findViewById(R.id.login_password);
         loginBtn = findViewById(R.id.login_button);
@@ -95,6 +96,8 @@ public class LoginActivity extends AppCompatActivity {
                 resultCode = result.getCode();
                 id = result.getUserId();
                 editor = sharedPreferences.edit();
+                String nickname = result.getNickname();
+                editor.putString("nickname",nickname);
 
 
                 if(resultCode==200){

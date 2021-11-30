@@ -27,6 +27,8 @@
             android:layout_height="wrap_content"
             android:text="룸메이트 추천 서비스"
             android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -81,7 +83,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="성별"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
                 <RadioGroup
                     android:id="@+id/sex"
@@ -122,6 +126,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
                     android:text="기숙사" />
 
                 <RadioGroup
@@ -168,7 +174,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="흡연 여부" />
+                    android:text="흡연 여부"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"/>
 
                 <RadioGroup
                     android:id="@+id/smoke"
@@ -208,7 +216,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="잠버릇" />
+                    android:text="잠버릇"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"/>
 
 
                 <RadioGroup
@@ -285,7 +295,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="음식 섭취" />
+                    android:text="음식 섭취"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"/>
 
                 <RadioGroup
                     android:id="@+id/food"
@@ -331,7 +343,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="평균 수면시간" />
+                    android:text="평균 수면시간"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"/>
 
                 <RadioGroup
                     android:id="@+id/sleepTime"
@@ -377,7 +391,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="청소 횟수" />
+                    android:text="청소 횟수"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"/>
 
                 <RadioGroup
                     android:id="@+id/NumberOfCleaning"
@@ -423,7 +439,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="샤워 횟수" />
+                    android:text="샤워 횟수"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"/>
 
                 <RadioGroup
                     android:id="@+id/NumberOfShower"

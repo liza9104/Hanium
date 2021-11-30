@@ -1,6 +1,10 @@
 package com.cookandroid.hanium;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,7 +39,10 @@ public class recommendInputFragment extends Fragment {
     private ServiceApi service;
     private String id, sex, dom, smoke, sleepHabit, food, sleepTime, numberOfCleaning, numberOfShower, title, desc;
     private List<String> arr = new ArrayList<>();
+    private boolean inputCheck = false;
     MainActivity mainActivity;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
 
     @Override
@@ -59,6 +66,8 @@ public class recommendInputFragment extends Fragment {
 
         Bundle bundle = getArguments();
         id = bundle.getString("id");
+        inputCheck = bundle.getBoolean("inputCheck");
+        sharedPreferences = getContext().getSharedPreferences("preferences",MODE_PRIVATE);
 
         inputSex = v.findViewById(R.id.sex);
         inputDom = v.findViewById(R.id.dom);
@@ -87,6 +96,7 @@ public class recommendInputFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 attemptInfoSend();
+
             }
         });
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -301,9 +311,14 @@ public class recommendInputFragment extends Fragment {
         service.userRRInfo(data).enqueue(new Callback<HashMap<String, String>>() {
             @Override
             public void onResponse(Call<HashMap<String, String>> call, Response<HashMap<String, String>> response) {
-
                 if (response.isSuccessful()) {
                     Toast.makeText(getContext(), response.body().get("message"), Toast.LENGTH_SHORT).show();
+                    inputCheck = Boolean.valueOf(response.body().get("inputCheck")) ;
+                    editor = sharedPreferences.edit();
+                    editor.putBoolean("inputCheck",true);
+                    editor.commit();
+                    mainActivity.onClickInputBtn();
+                    Log.d("test", inputCheck+"");
                 }
             }
 

@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     freeBulletinRegisterFragment freeBulletinRegisterFragment = new freeBulletinRegisterFragment();
     menuDetailFragment menuDetailFragment = new menuDetailFragment();
 
+    boolean inputCheck;
     SharedPreferences sharedPreferences;
 
     String id;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         recommendFragment.setArguments(bundle);
         recommendInitialFragment.setArguments(bundle);
         recommendSearchFragment.setArguments(bundle);
+        myPageFragment.setArguments(bundle);
 
 
 
@@ -85,23 +87,25 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left);
         fragmentTransaction.replace(R.id.frameLayout,recommendFragment).commitAllowingStateLoss();
     }
-    public void onClickSearchBtn() {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);
-        fragmentTransaction.replace(R.id.frameLayout,recommendSearchFragment).commitAllowingStateLoss();
 
-    }
     public void onClickBackBtn(){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);
         fragmentTransaction.replace(R.id.frameLayout,recommendInitialFragment).commitAllowingStateLoss();
-        Intent intent = getIntent();
-        String sql = intent.getStringExtra("sql");
-        Bundle bundle = new Bundle();
-        bundle.putString("sql",sql);
-        recommendInitialFragment.setArguments(bundle);
-        Log.d("sql",sql);
+//        Intent intent = getIntent();
+//        String sql = intent.getStringExtra("sql");
+//        Bundle bundle = new Bundle();
+//        bundle.putString("sql",sql);
+//        recommendInitialFragment.setArguments(bundle);
+//        Log.d("sql",sql);
     }
+    public void onClickInputBtn(){
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);
+        fragmentTransaction.replace(R.id.frameLayout,recommendInitialFragment).commitAllowingStateLoss();
+    }
+
     public void onClickFreeBulletinBtn() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);

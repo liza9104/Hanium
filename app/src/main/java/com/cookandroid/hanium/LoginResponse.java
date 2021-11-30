@@ -12,6 +12,13 @@ public class LoginResponse {
     @SerializedName("id")
     private String id;
 
+    @SerializedName("nickname")
+    private String nickname;
+
+    public String getNickname() {
+        return nickname;
+    }
+
     public int getCode() {
         return code;
     }

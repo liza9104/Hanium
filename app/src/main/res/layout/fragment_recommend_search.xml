@@ -61,7 +61,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:gravity="center"
-                android:text="기숙사" />
+                android:text="기숙사"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
 
             <CheckBox
                 android:id="@+id/dom1"
@@ -95,7 +97,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:gravity="center"
-                android:text="흡연 여부" />
+                android:text="흡연 여부"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
 
                 <CheckBox
                     android:id="@+id/smoker"
@@ -120,7 +124,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:gravity="center"
-                android:text="잠버릇" />
+                android:text="잠버릇"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
 
 
                 <CheckBox
@@ -145,7 +151,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:gravity="center"
-                android:text="음식 섭취" />
+                android:text="음식 섭취"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
 
 
                 <CheckBox
@@ -178,7 +186,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:gravity="center"
-                android:text="평균 수면시간" />
+                android:text="평균 수면시간"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
 
 
                 <CheckBox
@@ -210,7 +220,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:text="청소 횟수"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
 
                 <CheckBox
                     android:id="@+id/clean0to2"
@@ -241,7 +253,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:gravity="center"
-                android:text="샤워 횟수"/>
+                android:text="샤워 횟수"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
                 <CheckBox
                     android:id="@+id/shower0to2"
                     android:layout_width="wrap_content"

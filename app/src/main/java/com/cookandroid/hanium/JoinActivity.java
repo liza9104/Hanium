@@ -1,5 +1,6 @@
 package com.cookandroid.hanium;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +21,7 @@ public class JoinActivity extends AppCompatActivity {
     private EditText joinID,joinPw,joinPwChk,joinEmail,joinNickname;
     private Button idchk, joinBtn;
     private ServiceApi service;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +52,8 @@ public class JoinActivity extends AppCompatActivity {
                 attemptJoin();
             }
         });
+
+
     }
 
     private void attemptIdChk() {

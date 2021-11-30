@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "60122942070",
+    "project_id": "hanium-domit",
+    "storage_bucket": "hanium-domit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60122942070:android:b90d156b8533f4877f2d57",
+        "android_client_info": {
+          "package_name": "com.cookandroid.hanium"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "60122942070-2n1qga2lp6jd7m89quekuav9nrpmoqgi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8UCuYb1vRJf9WVUhYBZXzJEva0I0o6CE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "60122942070-2n1qga2lp6jd7m89quekuav9nrpmoqgi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

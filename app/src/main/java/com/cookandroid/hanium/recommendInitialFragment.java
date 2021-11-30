@@ -1,6 +1,12 @@
 package com.cookandroid.hanium;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +18,7 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,13 +44,15 @@ public class recommendInitialFragment extends Fragment {
             filtering_shower0to2,filtering_shower3to6,filtering_showerEveryday;
     Button initial;
     String id;
+    boolean inputCheck;
     LinearLayout filteringLayout;
+    ConstraintLayout inputAlarmLayout;
     Button filteringSettingBtn,filteringBtn;
     ArrayList<CheckBox> checkBoxes;
     ArrayList<String> filteringArray = new ArrayList<>();
     ArrayList<String> checkboxName = new ArrayList<>();
     ArrayList<RecommendData> arrayList = new ArrayList<>();
-
+    SharedPreferences sharedPreferences;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -61,6 +70,9 @@ public class recommendInitialFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_recommend_initial, container, false);
+        sharedPreferences = getContext().getSharedPreferences("preferences",MODE_PRIVATE);
+        inputCheck = sharedPreferences.getBoolean("inputCheck", false);
+        Log.d("test", inputCheck+"");
         recyclerView = v.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         Button myBtn = v.findViewById(R.id.my_btn);
@@ -84,6 +96,7 @@ public class recommendInitialFragment extends Fragment {
         filtering_shower0to2 = v.findViewById(R.id.filtering_shower0to2);
         filtering_shower3to6 = v.findViewById(R.id.filtering_shower3to6);
         filtering_showerEveryday = v.findViewById(R.id.filtering_showerEveryday);
+        inputAlarmLayout = v.findViewById(R.id.input_alarm_layout);
 
         initial = v.findViewById(R.id.initial);
 
@@ -110,6 +123,13 @@ public class recommendInitialFragment extends Fragment {
 
         Bundle bundle = getArguments();
         id = bundle.getString("id");
+
+        if(inputCheck == true){
+            myBtn.setEnabled(true);
+            inputAlarmLayout.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+            filteringSettingBtn.setEnabled(true);
+        }
 
 
         initial.setOnClickListener(new View.OnClickListener() {
@@ -177,6 +197,9 @@ public class recommendInitialFragment extends Fragment {
         myBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.putExtra("inputCheck",inputCheck);
+                mainActivity.setIntent(intent);
                 mainActivity.onClickMyBtn();
             }
         });
@@ -192,7 +215,7 @@ public class recommendInitialFragment extends Fragment {
                 if (response.isSuccessful()) {
                     RecommendResponse result = response.body();
 
-
+                    arrayList.clear();
                     for (int i = 0; i < result.getData().size(); i++) {
                         arrayList.add(result.getData().get(i));
 

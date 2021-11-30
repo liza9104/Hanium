@@ -36,6 +36,7 @@ public class InitialActivity extends AppCompatActivity {
         if (sharedPreferences.getBoolean("auto-login-activate",false)){
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
+            //finish();
         }
         service = getClient().create(ServiceApi.class);
 
@@ -57,13 +58,13 @@ public class InitialActivity extends AppCompatActivity {
         });
 
 
-        testBtn = findViewById(R.id.test_btn);
-        testBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attemptTest();
-            }
-        });
+//        testBtn = findViewById(R.id.test_btn);
+//        testBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                attemptTest();
+//            }
+//        });
         text = findViewById(R.id.text);
     }
 

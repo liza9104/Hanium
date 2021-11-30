@@ -15,11 +15,19 @@ class RecommendResponse {
     @SerializedName("data")
     private ArrayList<RecommendData> data;
 
-    public RecommendResponse(String code, String message, ArrayList<RecommendData> data) {
+
+    @SerializedName("inputCheck")
+    private boolean inputCheck;
+
+
+    public RecommendResponse(String code, String message, ArrayList<RecommendData> data, boolean inputCheck) {
         this.code = code;
         this.message = message;
         this.data = data;
+        this.inputCheck = inputCheck;
     }
+
+
 
     public String getCode() {
         return code;
@@ -43,5 +51,13 @@ class RecommendResponse {
 
     public void setData(ArrayList<RecommendData> data) {
         this.data = data;
+    }
+
+    public boolean isInputCheck() {
+        return inputCheck;
+    }
+
+    public void setInputCheck(boolean inputCheck) {
+        this.inputCheck = inputCheck;
     }
 }
