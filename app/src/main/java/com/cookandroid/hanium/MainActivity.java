@@ -31,11 +31,12 @@ public class MainActivity extends AppCompatActivity {
     freeBulletinFragment freeBulletinFragment = new freeBulletinFragment();
     freeBulletinRegisterFragment freeBulletinRegisterFragment = new freeBulletinRegisterFragment();
     menuDetailFragment menuDetailFragment = new menuDetailFragment();
-
+    noticeDetailFragment noticeDetailFragment = new noticeDetailFragment();
     boolean inputCheck;
     SharedPreferences sharedPreferences;
 
     String id;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,5 +125,11 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);
         fragmentTransaction.replace(R.id.frameLayout, menuDetailFragment).commitAllowingStateLoss();
 
+
+    }
+    public void onClickNoticeDetail() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right);
+        fragmentTransaction.replace(R.id.frameLayout, noticeDetailFragment).commitAllowingStateLoss();
     }
 }

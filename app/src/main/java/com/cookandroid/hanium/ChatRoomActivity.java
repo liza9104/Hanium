@@ -58,7 +58,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("chat").child(chatroomName);
+        final DatabaseReference myRef = database.getReference("chat").child(chatroomName);
 
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
